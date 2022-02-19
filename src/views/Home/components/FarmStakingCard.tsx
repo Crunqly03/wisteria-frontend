@@ -16,7 +16,11 @@ import useAllEarnings from '../../../hooks/useAllEarnings'
 import { getBalanceNumber } from '../../../utils/formatBalance'
 
 const StyledFarmStakingCard = styled(Card)`
-  background-image: url('/images/egg/2a.png');
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(45px);
+  padding: 25px;
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.05) 1px, 1px, 20px; 
   background-repeat: no-repeat;
   background-position: top right;
   min-height: 376px;
@@ -27,7 +31,11 @@ const Block = styled.div`
 `
 
 const CardImage = styled.img`
-  margin-bottom: 16px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  opacity: 0.05;
+  width:${(props)=>props.width} 
 `
 
 const Label = styled.div`
@@ -36,7 +44,7 @@ const Label = styled.div`
 `
 
 const Actions = styled.div`
-  margin-top: 24px;
+  margin-top: 2.5rem;
 `
 
 const FarmedStakingCard = () => {
@@ -65,13 +73,14 @@ const FarmedStakingCard = () => {
     }
   }, [onReward])
 
+  //  <CardImage src="/images/robinia-ico.svg" alt="robinia-ico" width={64} height={64} />
+        
   return (
     <StyledFarmStakingCard>
       <CardBody>
-        <Heading size="xl" mb="24px">
+        <Heading size="lg" mb="24px">
           {TranslateString(542, 'Farms & Staking')}
         </Heading>
-        <CardImage src="/images/egg/2.png" alt="cake logo" width={64} height={64} />
         <Block>
           <Label>{TranslateString(544, 'EGG to Harvest')}</Label>
           <CakeHarvestBalance earningsSum={earningsSum}/>
@@ -98,6 +107,7 @@ const FarmedStakingCard = () => {
             <UnlockButton fullWidth />
           )}
         </Actions>
+        <CardImage src="/images/robinia-ico.svg" alt="robinia-ico" width={300} />
       </CardBody>
     </StyledFarmStakingCard>
   )

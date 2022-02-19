@@ -89,18 +89,19 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
     [bnbPrice, account, cakePrice, ethereum],
   )
 
+//  <Heading as="h2" color="#aeaeae" mb="50px" style={{ textAlign: 'center' }}>
+//  {TranslateString(10000, 'Deposit Fee will be used to buyback EGG')}
+//  </Heading>
+
   return (
     <Page>
-      <Heading as="h1" size="lg" color="#aeaeae" mb="50px" style={{ textAlign: 'center' }}>
+      <Heading as="h1" size="xl" color="#aeaeae" mb="50px" style={{ textAlign: 'center' }}>
         {
           tokenMode ?
             TranslateString(10002, 'Stake tokens to earn EGG')
             :
           TranslateString(320, 'Stake LP tokens to earn EGG')
         }
-      </Heading>
-      <Heading as="h2" color="#aeaeae" mb="50px" style={{ textAlign: 'center' }}>
-        {TranslateString(10000, 'Deposit Fee will be used to buyback EGG')}
       </Heading>
       <FarmTabButtons stakedOnly={stakedOnly} setStakedOnly={setStakedOnly}/>
       <div>
@@ -114,9 +115,8 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
           </Route>
         </FlexLayout>
       </div>
-      <Image src="/images/egg/8.png" alt="illustration" width={1352} height={587} responsive />
     </Page>
   )
 }
-
+//  <Image src="/images/leaf-side.png" alt="leaf" width={201} height={114} responsive />
 export default Farms

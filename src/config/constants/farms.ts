@@ -5,12 +5,12 @@ const farms: FarmConfig[] = [
    {
      pid: 0,
      risk: 5,
-     lpSymbol: 'WST-BUSD LP',
+     lpSymbol: 'RBS-BUSD LP',
      lpAddresses: {
        97: '0xef233ccfc5d2fdfb7a1b2a60415501ddc4a4c17c',
        56: '0x19e7cbecdd23a16dfa5573df54d98f7caae03019',
      },
-     tokenSymbol: 'WST',
+     tokenSymbol: 'RBS',
      tokenAddresses: {
        97: '0xe90685e7Ca8f7a61ea5086965A1242919061E519',
        56: '0xf952fc3ca7325cc27d15885d37117676d25bfda6',
@@ -182,12 +182,12 @@ const farms: FarmConfig[] = [
       pid: 2,
       risk: 5,
       isTokenOnly: true,
-      lpSymbol: 'WST',
+      lpSymbol: 'RBS',
       lpAddresses: {
         97: '0xef233ccfc5d2fdfb7a1b2a60415501ddc4a4c17c',
         56: '0x19e7cbecdd23a16dfa5573df54d98f7caae03019',  // EGG-BUSD LP
       },
-      tokenSymbol: 'WST',
+      tokenSymbol: 'RBS',
       tokenAddresses: {
         97: '0xe90685e7Ca8f7a61ea5086965A1242919061E519',
         56: '0xf952fc3ca7325cc27d15885d37117676d25bfda6',

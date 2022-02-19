@@ -31,9 +31,9 @@ const StyledFooter = styled.div<{ isFinished: boolean }>`
 
 const StyledDetailsButton = styled.button`
   align-items: center;
-  background-color: transparent;
-  border: 0;
-  color: ${(props) => props.theme.colors.primary};
+  background-color: rgba(4, 106, 56, 1);
+  border: 0px;
+  color: ${(props) => props.theme.colors.primary};   
   cursor: pointer;
   display: inline-flex;
   font-size: 16px;
@@ -42,6 +42,7 @@ const StyledDetailsButton = styled.button`
   justify-content: center;
   outline: 0;
   padding: 0;
+  transition: background-color 0.2s ease 0s;
   &:hover {
     opacity: 0.9;
   }
@@ -50,6 +51,7 @@ const StyledDetailsButton = styled.button`
     margin-left: 4px;
   }
 `
+// color: rgba(255, 255, 255, 1);
 
 const Details = styled.div`
   margin-top: 24px;

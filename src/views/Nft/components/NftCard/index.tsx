@@ -154,7 +154,7 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
         )}
       </CardBody>
       <CardFooter p="0">
-        <DetailsButton endIcon={<Icon width="24px" color="secondary" />} onClick={handleClick}>
+        <DetailsButton endIcon={<Icon width="24px" color="primary" />} onClick={handleClick}>
           {state.isLoading ? TranslateString(999, 'Loading...') : TranslateString(999, 'Details')}
         </DetailsButton>
         {state.isOpen && (

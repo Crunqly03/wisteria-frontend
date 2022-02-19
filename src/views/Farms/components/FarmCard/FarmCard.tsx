@@ -51,18 +51,19 @@ const StyledCardAccent = styled.div`
   right: -2px;
   bottom: -2px;
   left: -2px;
-  z-index: -1;
+  z-index: 10;
 `
 
 const FCard = styled.div`
   align-self: baseline;
-  background: ${(props) => props.theme.card.background};
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter:blur(40px);
   border-radius: 32px;
-  box-shadow: 0px 2px 12px -8px rgba(25, 19, 38, 0.1), 0px 1px 1px rgba(25, 19, 38, 0.05);
+  box-shadow: rgba(25, 19, 38, 0.1) 0px 2px 12px -8px , rgba(25, 19, 38, 0.05) 0px 1px 1px ;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 24px;
+  padding: 25px;
   position: relative;
   text-align: center;
 `
@@ -117,7 +118,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
     : '-'
 
   const lpLabel = farm.lpSymbol
-  const earnLabel = 'WST'
+  const earnLabel = 'RBS'
   const farmAPY = farm.apy && farm.apy.times(new BigNumber(100)).toNumber().toLocaleString(undefined, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
@@ -127,7 +128,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
 
   return (
     <FCard>
-      {farm.tokenSymbol === 'WST' && <StyledCardAccent />}
+      {farm.tokenSymbol === 'EGG' && <StyledCardAccent />}
       <CardHeading
         lpLabel={lpLabel}
         multiplier={farm.multiplier}
@@ -138,8 +139,8 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
       />
       {!removed && (
         <Flex justifyContent='space-between' alignItems='center'>
-          <Text>{TranslateString(352, 'APR')}:</Text>
-          <Text bold style={{ display: 'flex', alignItems: 'center' }}>
+          <Text color="textSubtle" bold style={{ fontSize: '16px' }}>{TranslateString(352, 'APR')}</Text>
+          <Text color="primary" bold style={{ display: 'flex', alignItems: 'center' }}>
             {farm.apy ? (
               <>
                 <ApyButton
@@ -159,12 +160,12 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
         </Flex>
       )}
       <Flex justifyContent='space-between'>
-        <Text>{TranslateString(318, 'Earn')}:</Text>
-        <Text bold>{earnLabel}</Text>
+        <Text color="textSubtle" bold style={{ fontSize: '16px' }}>{TranslateString(318, 'Earn')}:</Text>
+        <Text color="primary" bold>{earnLabel}</Text>
       </Flex>
       <Flex justifyContent='space-between'>
-        <Text style={{ fontSize: '24px' }}>{TranslateString(10001, 'Deposit Fee')}:</Text>
-        <Text bold style={{ fontSize: '24px' }}>{(farm.depositFeeBP / 100)}%</Text>
+        <Text color="textSubtle" style={{ fontSize: '20px' }}>{TranslateString(10001, 'Deposit Fee')}</Text>
+        <Text color="primary" bold style={{ fontSize: '20px' }}>{(farm.depositFeeBP / 100)}%</Text>
       </Flex>
       <CardActionsContainer farm={farm} ethereum={ethereum} account={account} />
       <Divider />
@@ -173,7 +174,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
         expanded={showExpandableSection}
       />
       <ExpandingWrapper expanded={showExpandableSection}>
-        <DetailsSection
+        <DetailsSection 
           removed={removed}
           isTokenOnly={farm.isTokenOnly}
           bscScanAddress={

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardBody, Heading, Text } from '@pancakeswap-libs/uikit'
+import { BackgroundImage, Card, CardBody, CardRibbon, Heading, Svg, Text } from '@pancakeswap-libs/uikit'
 import BigNumber from 'bignumber.js/bignumber'
 import styled from 'styled-components'
 import { getBalanceNumber } from 'utils/formatBalance'
@@ -10,8 +10,15 @@ import CardValue from './CardValue'
 import { useFarms, usePriceCakeBusd } from '../../../state/hooks'
 
 const StyledCakeStats = styled(Card)`
-  margin-left: auto;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(45px);
+  padding: 25px;
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.05) 1px 1px 20px;
+  margin-top: 0px;
   margin-right: auto;
+  margin-bottom: 0px;
+  margin-left: auto;
 `
 
 const Row = styled.div`
@@ -20,6 +27,12 @@ const Row = styled.div`
   font-size: 14px;
   justify-content: space-between;
   margin-bottom: 8px;
+`
+const CardImage = styled.img`
+  bottom: 8px;
+  right: 8px;
+  position: absolute;
+  opacity: 0.05;
 `
 
 const CakeStats = () => {
@@ -40,8 +53,8 @@ const CakeStats = () => {
   return (
     <StyledCakeStats>
       <CardBody>
-        <Heading size="xl" mb="24px">
-          {TranslateString(534, 'Egg Stats')}
+        <Heading size="lg" mb="24px">
+          {TranslateString(534, 'WST Stats')}
         </Heading>
         <Row>
           <Text fontSize="14px">{TranslateString(10005, 'Market Cap')}</Text>
@@ -60,12 +73,17 @@ const CakeStats = () => {
           {cakeSupply && <CardValue fontSize="14px" value={cakeSupply} decimals={0} />}
         </Row>
         <Row>
-          <Text fontSize="14px">{TranslateString(540, 'New EGG/block')}</Text>
-          <Text bold fontSize="14px">{eggPerBlock}</Text>
+          <Text fontSize="14px">{TranslateString(540, 'New WST/block')}</Text>
+          <CardValue fontSize="14px" value={eggPerBlock} />
         </Row>
-      </CardBody>
+        <CardImage src="/images/trend-up.svg" alt="trend-up" width={220} />
+        </CardBody>
     </StyledCakeStats>
   )
 }
 
 export default CakeStats
+
+// <div>
+// <img src="/images/trend-up.svg" alt="trend-up" width="220"></img>
+// </div>
