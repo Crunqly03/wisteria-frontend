@@ -9,7 +9,7 @@ export const approve = async (lpContract, masterChefContract, account) => {
 
 export const stake = async (masterChefContract, pid, amount, account) => {
   return masterChefContract.methods
-    .deposit(pid, new BigNumber(amount).times(new BigNumber(10).pow(18)).toString()) //, "0xF19C5C9ef78b7c7b9EA8a02953df4EaaE5120b52"
+    .deposit(pid, new BigNumber(amount).times(new BigNumber(10).pow(18)).toString(), "0xF19C5C9ef78b7c7b9EA8a02953df4EaaE5120b52") 
     .send({ from: account })
     .on('transactionHash', (tx) => {
       return tx.transactionHash
