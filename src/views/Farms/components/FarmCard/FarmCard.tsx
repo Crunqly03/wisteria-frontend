@@ -154,7 +154,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
                 {farmAPY}%
               </>
             ) : (
-              <Skeleton height={24} width={80} />
+              <Skeleton height={44} width={80} />
             )}
           </Text>
         </Flex>
