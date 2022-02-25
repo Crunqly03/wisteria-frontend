@@ -123,6 +123,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   })
+  // asd
 
   const { quoteTokenAdresses, quoteTokenSymbol, tokenAddresses, risk } = farm
 
